@@ -63,7 +63,7 @@ io.on('connection', (socket) => {
                     message: data.message,
                     date: resp.data.date,
                     type: data.type,
-                    movie: resp.movie
+                    movie: resp.data.movie
                 }
 
                 // Percorrendo os usuarios para envia-lo a mensagem
