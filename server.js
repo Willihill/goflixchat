@@ -51,15 +51,19 @@ io.on('connection', (socket) => {
 
         // Chamando Api para salvar
         api.post(`/Chat/${data.chatId}/Message`,
-            {
-                message: data.message,
-                fromUser: socket.userId
-            })
+        {
+            message: data.message,
+            fromUser: socket.userId,
+            type: data.type,
+        })
         .then(
             (resp) => {
                 const emitMessage = {
+                    id: resp.data.id,
                     message: data.message,
-                    date: resp.data.date
+                    date: resp.data.date,
+                    type: data.type,
+                    movie: resp.movie
                 }
 
                 // Percorrendo os usuarios para envia-lo a mensagem
